@@ -1,10 +1,32 @@
 import React from 'react';
+import {Container, AppBar, Typography, Grow, Grid} from '@material-ui/core';
 
-const App = ()  =>{   // App = () = > { -- put stuff in here--} is a functional component
+import Posts from './components/Posts/Posts';
+import Form from './components/Form/Form';
+import reminiscence from './images/Reminiscence.png';
+import useStyles from './styles';
+
+
+const App = ()  =>{
+    const classes = useStyles(); // MATERIALUI STYLE FROM STYLE.JS >> MATERIALUI
     return (
-        <div>
-            <h1>App</h1>
-        </div>
+        <Container maxWidth = 'lg'>
+            <AppBar className={classes.appBar} position ='static' color ='inherit'>
+                <img className={classes.image} src={reminiscence} alt='reminiscence' height='120' width='350'/>
+            </AppBar>
+            <Grow in>
+                <Container>
+                    <Grid container justify ="space-between" alignItems='stretch' spacing={3}>
+                        <Grid item xs={12} sm={7}>
+                            <Posts />
+                        </Grid>
+                        <Grid item xs={12} sm={4}>
+                            <Form />
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Grow>
+        </Container>
     )
 }
 
