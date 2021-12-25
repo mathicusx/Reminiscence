@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'; //middleware that allows you to return functions, rather than just actions.
 
-import reducers from './reducers';
+import { reducers } from './reducers';
 
 import App from './App';
 
