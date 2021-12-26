@@ -8,7 +8,7 @@ export const getPosts = () => async (dispatch) => { // <-- redux thunk allows us
         const { data } = await api.fetchPosts();
 
         // actions must have the type property that we have assigned to it, and they can also have payload(the data where we store our posts)
-        dispatch({ type: "FETCH_ALL", payload: data }); // with redux thunk you have to dispatch the action instead of returning it.}
+        dispatch({ type: 'FETCH_ALL', payload: data }); // with redux thunk you have to dispatch the action instead of returning it.}
     } catch (error) {
         console.log(error.message);
     }
@@ -18,8 +18,18 @@ export const createPost = (post) => async (dispatch) => {
     try {
         const { data } = await api.createPost(post);
 
-        dispatch({ type: "CREATE", payload: data });
+        dispatch({ type: 'CREATE', payload: data });
     } catch (error) {
         console.log(error.message);
     }
 };
+
+export const updatePost = (id, post) => async (dispatch) => {
+    try {
+        const { data } = await api.updatePost(id, post); // returning the updated post
+
+        dispatch({ type: 'UPDATE', payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+}

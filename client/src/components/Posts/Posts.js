@@ -5,8 +5,8 @@ import { useSelector } from "react-redux"; //Allows you to extract data from the
 import Post from './Post/Post';
 import useStyles from './styles';
 
-const Posts = () => {
-    const posts = useSelector((state) => state.posts ); // posts comes from Reducers index.js
+const Posts = ({ setCurrentId}) => {
+    const posts = useSelector((state) => state.posts ); // posts comes from Reducers(Redux) index.js
     const classes = useStyles(); // MATERIALUI STYLE FROM STYLE.JS >> MATERIALUI
     
 
@@ -17,7 +17,7 @@ const Posts = () => {
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {posts.map((post) =>  (
                     <Grid key={post._id} item xs={12} sm={6}>
-                        <Post post={post}/>
+                        <Post post={post} setCurrentId={setCurrentId}/>
                     </Grid>
                 ))}
             </Grid>

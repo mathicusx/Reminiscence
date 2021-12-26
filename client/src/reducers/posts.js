@@ -9,6 +9,10 @@
             return action.payload;
         case 'CREATE':
             return [...posts, action.payload];
+        case 'UPDATE':
+            // action payload is our updated post and we check if it matches then if it matches we return the updated post.
+            // else if it doesn't match return post without updating it
+            return posts.map((post) => post._id === action.payload._id ? action.payload : post);
         default:
             return posts;
     }

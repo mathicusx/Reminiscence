@@ -9,6 +9,7 @@ import thunk from 'redux-thunk'; //middleware that allows you to return function
 import { reducers } from './reducers';
 
 import App from './App';
+import './index.css';
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
